@@ -1,0 +1,25 @@
+# 独立事件
+Events:
+  # 事件编号
+  TestEvent.001:
+    # 事件发生时谁会收到
+    # global 代表所有人，也可以理解为广播（例如，欧陆风云4更换时代时，所有国家都会收到这个事件）
+    Receive: "global"
+    # 事件描述
+    Description: "这是一个测试事件"
+    # 事件发生条件
+    Check:
+    # 事件发生起始时间（例如，群星的天灾在默认条件下要到2500年才能触发）
+    StartDelay:
+    # 事件发生最迟时间
+    DeadLineDeLay:
+    # 事件发生延时
+    Delay:
+    # 事件发生概率
+    Random:
+    # 事件效果
+    Effect:
+  TestEvent.002:
+    Receive: "global"
+    Description:
+  
