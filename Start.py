@@ -1,5 +1,21 @@
 import wx
 import Gamer
+import yaml
+import os
+
+
+def get_yaml_data_all(yaml_file):
+    # 打开yaml文件
+    file = open(yaml_file, 'r', encoding='utf-8')
+    file_data = file.read()
+    file.close()
+    data = yaml.load(file_data)
+    # 返回一个字典，对应yaml文件中的数据
+    return data
+# current_path = os.path.abspath(".")
+# yaml_path = os.path.join(current_path, "config.yaml")
+# get_yaml_data_all(yaml_path)
+# 使用get_yaml_data_all函数的示例。
 
 
 class GameWindow(wx.Frame):
@@ -20,9 +36,11 @@ class GameWindow(wx.Frame):
 
         self.Work = wx.Button(panel2, -1, label='劳动', pos=(200, 60))
         self.Learn = wx.Button(panel2, -1, label='学习', pos=(200, 10))
+        self.TianFu = wx.Button(panel2, -1, label='打拳', pos=(450, 10))
 
         self.Bind(wx.EVT_BUTTON, self.Action, self.Work)
-        self.Bind(wx.EVT_BUTTON, self.Action, self.Learn)
+        self.Bind(wx.EVT_BUTTON, self.Action2, self.Learn)
+        self.Bind(wx.EVT_BUTTON, self.TianFu_Action, self.TianFu)
 
         self.run_title = wx.StaticText(panel2, -1, label='剩余行动力: ' + str(self.run), pos=(320, 10))
         font2 = wx.Font(11, wx.DEFAULT, wx.FONTSTYLE_NORMAL, wx.NORMAL)
@@ -34,8 +52,6 @@ class GameWindow(wx.Frame):
 播里的讲话，高声唱起图书馆之歌来，似乎是可以念一首《海
 燕》了。'''
                                            , pos=(50, 100), size=(360, 300), style=wx.TE_MULTILINE)
-
-
 
     def Next_continue(self, event):
         self.time = self.time + 1
@@ -51,6 +67,24 @@ class GameWindow(wx.Frame):
             errorMessage = wx.MessageDialog(None, '你没有行动力了！', '提示：', wx.YES_DEFAULT | wx.ICON_QUESTION)
             if errorMessage.ShowModal() == wx.ID_YES:
                 errorMessage.Destroy()
+        self.mess.AppendText('\n事件：你遭到了剥削，老板开着迈巴赫施舍了你一点钱。（资源点+1）')
+
+    def Action2(self, event):
+        self.run = self.run - 1
+        self.run_title.SetLabel('剩余行动力: ' + str(self.run))
+        if self.run < 0:
+            errorMessage = wx.MessageDialog(None, '你没有行动力了！', '提示：', wx.YES_DEFAULT | wx.ICON_QUESTION)
+            if errorMessage.ShowModal() == wx.ID_YES:
+                errorMessage.Destroy()
+        self.mess.AppendText('\n事件：你认真学习，提高了自己的能力！（能力+1）')
+    def TianFu_Action(self, event):
+        self.run = self.run - 1
+        self.run_title.SetLabel('剩余行动力: ' + str(self.run))
+        if self.run < 0:
+            errorMessage = wx.MessageDialog(None, '你没有行动力了！', '提示：', wx.YES_DEFAULT | wx.ICON_QUESTION)
+            if errorMessage.ShowModal() == wx.ID_YES:
+                errorMessage.Destroy()
+        self.mess.AppendText('\n事件：你在网上打拳，收到了中情局的补贴。（资源点+2）')
 
 
 if __name__ == '__main__':
