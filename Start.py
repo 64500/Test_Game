@@ -42,6 +42,7 @@ class GameWindow(wx.Frame):
         self.run = 5
         self.title.SetLabel('回合：'+str(self.time))
         self.run_title.SetLabel('剩余行动力: ' + str(self.run))
+        self.mess.AppendText('\n测试事件：你早上看见了女人打拳，顿生惊恐（焦虑值+8）')
 
     def Action(self, event):
         self.run = self.run - 1

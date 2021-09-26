@@ -5,7 +5,7 @@ Character:
     # 角色名称
     Name: "拳师"
     # 角色描述
-    Description: "分裂社会的恐怖分子，可以使用技能获得“CIA补贴“经常刺杀男性网约车司机,但该职业容易入狱，被击杀后会给击杀对象25个资源点"
+    Description: "分裂社会的恐怖分子，经常刺杀男性网约车司机,但该职业容易被逮捕。"
     # 角色描述
     Value:
       Resources: 4
@@ -14,5 +14,5 @@ Character:
     Name: "天龙人"
     Description: "帝都的高等居民，可以使用技能“正黄旗贵族”额外获得大量资源点"
     Value:
-      Resources:
-      Intelligence:
+      Resources: 50
+      Intelligence: 10
