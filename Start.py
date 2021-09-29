@@ -3,20 +3,8 @@ import Gamer
 import yaml
 import os
 import random
+import YamlLoad
 
-
-def get_yaml_data_all(yaml_file):
-    # 打开yaml文件
-    file = open(yaml_file, 'r', encoding='utf-8')
-    file_data = file.read()
-    file.close()
-    data = yaml.load(file_data)
-    # 返回一个字典，对应yaml文件中的数据
-    return data
-# current_path = os.path.abspath(".")
-# yaml_path = os.path.join(current_path, "config.yaml")
-# get_yaml_data_all(yaml_path)
-# 使用get_yaml_data_all函数的示例。
 
 Events = ['你今天等公交车的时候，发现天桥下跳下来一个赛里斯女超人，可惜她摔死了，你大为震撼。',
           '你刷手机的时候，看见了一条恐婚新闻，你感觉很惊恐，离爱情又远了很多。(焦虑+4)',
@@ -27,11 +15,20 @@ Events = ['你今天等公交车的时候，发现天桥下跳下来一个赛里
           '你看见一辆轿车上画着膏药旗，感到大为震撼。'
           ]
 
+Event3 = YamlLoad.get_yaml_data_all('JB1_Event.yml')
+
+for i in range(len(Event3)):
+    ene = []
+    jishuqi = 'Event_JB1_00' + str(i+1)
+    ene[i] = Event3['Events'][jishuqi]['Description']
+    print(jishuqi)
+print(ene)
+
 
 class GameWindow(wx.Frame):
     # 定义游戏窗口
     def __init__(self, parent, id):
-        wx.Frame.__init__(self, parent, id=-1, title="游戏进行时", pos=(800, 100), size=(600, 640))
+        wx.Frame.__init__(self, parent, id=-1, title="游戏进行时", pos=(800, 100), size=(630, 640))
         panel2 = wx.Panel(self)
 
         self.time = 1
@@ -76,8 +73,11 @@ class GameWindow(wx.Frame):
 
         self.next = wx.Button(panel2, -1, label='下一回合', pos=(490, 540))
         self.Get_Card = wx.Button(panel2, -1, label='抽取卡片', pos=(490, 500))
+        self.Shop = wx.Button(panel2, -1, label='消费市场', pos=(490, 460))
+        self.TouZi = wx.Button(panel2, -1, label='投资市场', pos=(490, 420))
 
         self.Buff = wx.TextCtrl(panel2, -1, value='buff栏', pos=(470, 100), size=(100, 300), style=wx.TE_MULTILINE)
+        self.Money = wx.TextCtrl(panel2, -1, value='资产', pos=(360, 420), size=(100, 160), style=wx.TE_MULTILINE)
 
         self.Bind(wx.EVT_BUTTON, self.Next_continue, self.next)
 
