@@ -427,7 +427,6 @@ class Frame1(wx.Frame):
             if errorMessage2.ShowModal() == wx.ID_YES:
                 errorMessage2.Destroy()
         if i == 1 and i2 == 3:
-            if __name__ == '__main__':
                 app2 = wx.App()
                 frame2 = GameWindow(parent=None, id=-1)
                 frame2.Show()
@@ -438,7 +437,7 @@ class GameWindow(Start.GameWindow):
     pass
 
 
-if __name__ == '__main__':
+def show():
     app = wx.App()
     frame = Frame1(parent=None, id=-1)
     frame.Show()

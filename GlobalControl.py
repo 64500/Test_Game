@@ -16,13 +16,14 @@ class Singleton(object):
 @Singleton
 class Global:
     def __init__(self):
-        self.time=0;
+        self._time=0;
         pass
     @property
     def time(self):
-        return self.time
+        return self._time
+        pass
     @time.setter
     def time(self,value):
-        self.time+=value
+        self._time=value
     def next(self):
-        self.time+=1;
+        self._time+=1
