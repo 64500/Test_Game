@@ -130,6 +130,9 @@ Events:
   Event.JB3.036:
     Receive:
     Description: "小阿连德，聂鲁达，恩里克斯率领MIR游击队占领哥伦比亚，恩里克斯在拉莫内达宫发表了“当年搞离岸革命的人都是孬种和叛徒”的声明，并宣布自己不会出逃。"
+  Event.JB3.037:
+    Receive:
+    Description: ""
 
 
 
