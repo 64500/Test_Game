@@ -1,3 +1,6 @@
+# HYM740
+# 单例模式装饰器
+# https://zhuanlan.zhihu.com/p/37534850
 class Singleton(object):
     def __init__(self, cls):
         self._cls = cls
@@ -12,5 +15,15 @@ class Singleton(object):
 # 此类使用单例模式，只允许存在一个此类的对象
 @Singleton
 class Global:
-    def __init__(self) -> None:
+    def __init__(self):
+        self._time=0;
         pass
+    @property
+    def time(self):
+        return self._time
+        pass
+    @time.setter
+    def time(self,value):
+        self._time=value
+    def next(self):
+        self._time+=1

@@ -3,7 +3,7 @@ import Gamer
 import yaml
 import os
 import random
-import YamlLoad
+import util.YAMLLoad
 
 
 Events = ['你今天等公交车的时候，发现天桥下跳下来一个赛里斯女超人，可惜她摔死了，你大为震撼。',
@@ -14,17 +14,6 @@ Events = ['你今天等公交车的时候，发现天桥下跳下来一个赛里
           '你有那个大病，于是去人民医院看了看，医生给你看了你的大病。(健康+4，焦虑-10,资源-1)',
           '你看见一辆轿车上画着膏药旗，感到大为震撼。'
           ]
-
-Event3 = YamlLoad.get_yaml_data_all('JB1_Event.yml')
-
-for i in range(len(Event3)):
-    ene = []
-    jishuqi = 'Event_JB1_00' + str(i+1)
-    ene[i] = Event3['Events'][jishuqi]['Description']
-    print(jishuqi)
-print(ene)
-
-
 class GameWindow(wx.Frame):
     # 定义游戏窗口
     def __init__(self, parent, id):
@@ -134,10 +123,3 @@ class GameWindow(wx.Frame):
             if errorMessage.ShowModal() == wx.ID_YES:
                 errorMessage.Destroy()
         self.mess.AppendText('\n事件：你在网上打拳，收到了中情局的补贴。（资源点+2）')
-
-
-if __name__ == '__main__':
-    app2 = wx.App()
-    frame2 = GameWindow(parent=None, id=-1)
-    frame2.Show()
-    app2.MainLoop()
