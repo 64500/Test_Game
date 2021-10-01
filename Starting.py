@@ -2,13 +2,11 @@
 import wx
 import Gamer
 import Start
+import util.YAMLLoad
 # 导入需要的模块
 
-JvBen1 = '''
-新风暴：自从极东之地的金融波动之后，震坦和四岛社会已经
-运转到了极限，人们纷纷追忆起三年前萨布林娜小姐在全国广
-播里的讲话，高声唱起图书馆之歌来，似乎是可以念一首《海
-燕》了。'''
+jieshao_String = util.YAMLLoad.getYAMLDataAll('./GUI/ShengFenJieShao.yml')
+JvBen = util.YAMLLoad.getYAMLDataAll('./GUI/JvBenName.yml')
 
 
 class Frame1(wx.Frame):
@@ -39,12 +37,7 @@ class Frame1(wx.Frame):
         self.rb17 = wx.RadioButton(panel, -1, label='X批', pos=(10, 490))
         self.rb18 = wx.RadioButton(panel, -1, label='电竞粉', pos=(10, 520))
 
-        jieshao_String = '''
-        拳师：分裂社会的恐怖分子，可以使用技能获得“CIA补贴“
-        经常刺杀男性网约车司机,但该职业容易入狱，被击杀后会
-        给击杀对象25个资源点（联机DLC）
-                         '''
-        self.title_2 = wx.StaticText(panel, label=jieshao_String, pos=(100, 60))
+        self.title_2 = wx.StaticText(panel, label=jieshao_String['jieshao_QuanShi'], pos=(100, 60))
         self.Bind(wx.EVT_RADIOBUTTON, self.Click1, self.rb3)
         self.Bind(wx.EVT_RADIOBUTTON, self.Click2, self.rb2)
         self.Bind(wx.EVT_RADIOBUTTON, self.Click3, self.rb1)
@@ -87,9 +80,7 @@ class Frame1(wx.Frame):
         self.SFShuXing_2 = wx.CheckBox(panel, id=-1, label='天赋：煽动神言', pos=(240, 340))
         self.SFShuXing_3 = wx.CheckBox(panel, id=-1, label='天赋：CIA兼职', pos=(380, 340))
 
-        ChuShi = ['道具卡：五仁月饼,事件卡：三分钟热度 X8', '道具卡：《解析入门》,资源卡：老家地皮',
-                  '道具卡：索尼相机,数位画板,廉价吉他,《故事》'
-                  , '事件卡：老家拆迁,道具卡：《火星英语四级》', '事件卡：基金大涨 X2,举报间谍 X1,资源卡：技能-成功韭菜的炒股经验']
+        ChuShi = []
         self.ChuShiZiYuan = wx.ComboBox(panel, id=-1, choices=ChuShi, pos=(100, 360))
 
         self.ZTLian = wx.StaticText(panel, id=-1,
@@ -106,14 +97,7 @@ class Frame1(wx.Frame):
         self.QueDing = wx.Button(panel, -1, label='开始游戏', pos=(480, 560))
         self.Bind(wx.EVT_BUTTON, self.Start, self.QueDing)
 
-        JvBen3 = '''
-            黑太阳：新大陆的大火山爆发了，联邦国在一周之间分崩离析
-            漫天尘埃遮蔽了阳光。阳之力的缺失导致灵异复苏，来自地狱
-            的伟人回到了他忠诚的世界——’此去阎台招旧部，十万旌旗斩
-            阎罗。’
-                 '''
-
-        self.BeiJie = wx.StaticText(panel, -1, label=JvBen1, pos=(60, 400))
+        self.BeiJie = wx.StaticText(panel, -1, label=JvBen['JvBen1'], pos=(60, 400))
 
         self.JB1 = wx.Button(panel, -1, label='新风暴', pos=(100, 380))
         self.JB2 = wx.Button(panel, -1, label='大洪水', pos=(200, 380))
@@ -127,31 +111,16 @@ class Frame1(wx.Frame):
         self.Bind(wx.EVT_RADIOBUTTON, self.OnClick2, self.xb2)
 
     def InClick1(self, event):
-        JvBen1 = '''
-            新风暴：自从极东之地的金融波动之后，震坦和四岛社会已经
-            运转到了极限，人们纷纷追忆起三年前萨布林娜小姐在全国广
-            播里的讲话，高声唱起图书馆之歌来，似乎是可以念一首《海
-            燕》了。
-                 '''
-        self.BeiJie.SetLabel(JvBen1)
+        name = JvBen['JvBen1']
+        self.BeiJie.SetLabel(name)
 
     def InClick2(self, event):
-        JvBen2 = '''
-            大洪水：资本家对自然资源的需求无穷无尽，三罗和震坦首先
-            出现了能源危机，矛盾转移掩盖不了两极渐渐融化的冰川，洪
-            水的时代要到来了。但东国的废水催生了一只庞大的海洋生物
-            无人看见它的容貌，能看见它容貌的人都疯了。
-                 '''
-        self.BeiJie.SetLabel(JvBen2)
+        name = JvBen['JvBen2']
+        self.BeiJie.SetLabel(name)
 
     def InClick3(self, event):
-        JvBen3 = '''
-            黑太阳：新大陆的大火山爆发了，联邦国在一周之间分崩离析
-            漫天尘埃遮蔽了阳光。阳之力的缺失导致灵异复苏，来自地狱
-            的导师回到了他奋斗的世界——’此去阎台招旧部，十万旌旗斩
-            阎罗。’
-                 '''
-        self.BeiJie.SetLabel(JvBen3)
+        name = JvBen['JvBen3']
+        self.BeiJie.SetLabel(name)
 
     def OnClick1(self, event):
         self.XB.SetLabel('性别:男')
