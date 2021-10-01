@@ -1,0 +1,87 @@
+# 独立事件
+Events:
+  # 事件编号
+  TestEvent.001:
+    # 事件发生时谁会收到
+    # global 代表所有人，也可以理解为广播（例如，欧陆风云4更换时代时，所有国家都会收到这个事件）
+    Receive: "global"
+    # 事件描述
+    Description: "这是一个测试事件"
+    # 事件发生条件
+    Check:
+    # 事件发生起始时间（例如，群星的天灾在默认条件下要到2500年才能触发）
+    StartDelay:
+    # 事件发生最迟时间
+    DeadLineDeLay:
+    # 事件发生延时
+    Delay:
+    # 事件发生概率
+    Random:
+    # 事件效果
+    Effect:
+  Event_JB1_001:
+    Receive: "global"
+    Description: "由于科研界最近在自动化生产上的进步，伟大的117感恩国有许多企业宣布了更为激进的裁员和末位淘汰制度。"
+  Event_JB1_002:
+    Receive: "global"
+    Description: "117感恩政府最近宣布了海军军官萨布林娜的判决书，将于三个月后执行枪决。"
+  Event_JB1_003:
+    Receive: "global"
+    Description: "感恩政府仁爱部宣布了二十一部动画带有反动反伟大道路的元素，遂执行了封杀。同时，名著《悲惨世界》被仁爱部宣布涉黄。"
+  Event_JB1_004:
+    Receive: "global"
+    Description: "感恩政府宣布了领导人将继续担任伟大舵手的职位。同日，感恩政府教育部宣布管控私人教培行业，这导致了大量的“豪宅补习突击队”的诞生。"
+  Event_JB1_005:
+    Receive: "global"
+    Description: "随着感恩国南部工业地带的裁员潮越来越严重，不少地区共富部宣布了更为苛刻的失业救济标准。同日，萨布林娜在监狱中被自杀。"
+  Event_JB1_006:
+    Receive: "global"
+    Description: "灯塔政府宣布工业回撤计划失败，同时，华尔街股市涨幅愈发高昂，专家分析道这是因为新自动化改革带来的经济奇迹。"
+  Event_JB1_007:
+    Receive: "global"
+    Description: "感恩国发布政令拯救本国住宅产业，但却导致部分地区政府无力再去救援失业浪潮中下岗的农民工。"
+  Event_JB1_008:
+    Receive: "global"
+    Description: "反996法令已成为废纸，感恩国宫廷画师的新作《伟大道路》宣布禁止评价，南方工业集团大量撤裁员工，但九成工人都是由于如厕时间超标被辞退。"
+  Event_JB1_009:
+    Receive: "global"
+    Description: "中部地区一中学学生组织同学声援南方工人维权运动，随后被感恩国稳定部逮捕。据小道消息，灯塔国货币发行量大幅增长。"
+  Event_JB1_010:
+    Receive: "global"
+    Description: "在东巴黎纳黑桥交通枢纽，游行的工人讨薪团和资方对峙，在冲突中，一名年轻学生被点燃，他抱着《感恩劳动法》死在火海中。网民成为10.15事件。"
+  Event_JB1_011:
+    Receive: "global"
+    Description: "由于无人无法消费，市场上产生了大量过剩商品，为了救市感恩政府发布政令压低物价并主动收购了大量溢出货物。"
+  Event_JB1_012:
+    Receive: "global"
+    Description: "各大网络平台宣布10和15两个数字为禁词，同时，东巴黎纳政府法院判定10.15事件为非法游行，其死于自杀。"
+  Event_JB1_013:
+    Receive: "global"
+    Description: "灯塔国爆发金融危机，史称第二次黑色星期天。随后灯塔国议会宣布了提高关税，关闭银行取款功能，招募失业人员新建基建等措施。"
+  Event_JB1_014:
+    Receive: "global"
+    Description: "黑色星期天蔓延到感恩国，感恩国国务院宣布了同灯塔国几乎一致的措施，这有效的减低了南方失业潮带来的影响。"
+  Event_JB1_015:
+    Receive: "global"
+    Description: "感恩国各地疯人院逮捕队频频出动，逮捕了大量的在校学生，在逮捕之前他们都狂热的信仰一个代号‘猫人’的不知名人物。"
+  Event_JB1_016:
+    Receive: "global"
+    Description: "因为越来越大的财政压力，感恩国政府取消了十二年制教育的制定计划并宣布大学扩招。"
+  Event_JB1_017:
+    Receive: "global"
+    Description: "感恩国政府仁爱部宣布战争电影不得出现枪战和鲜血，以及暴力场面。并要求已经制作完成的电影将血液改成绿色。"
+  Event_JB1_018:
+    Receive: "global"
+    Description: "感恩国政府大建疯人院，向社会提供了大量的劳动岗位，走投无路的工人积极参加了这个项目，感恩政府称此举为以工代赈。"
+  Event_JB1_029:
+    Receive: "global"
+    Description: "大量康米运动家被关押进了新建立的疯人病院。同时，感恩国国务院宣布开放十八胎政策。"
+  Event_JB1_020:
+    Receive: "global"
+    Description: "大萧条波及全世界，合众联储宣布暴毙，灯塔币通膨率持续高涨，在本报记者报告前，通膨率已经高达54.4%。"
+  Event_JB1_021:
+    Receive: "global"
+    Description: "感恩国南方大量小工厂和手工作坊倒闭，一眼望去尽是萧条。感恩国中央银行宣布放宽贷款条件，积极救市，新一届的感恩大会将讨论这个问题。"
+  Event_JB1_022:
+    Receive: "global"
+    Description: "公主陛下近日将回到她强大的祖国，感恩政府遂举报了盛大的欢宴。同日，一名维权律师遭到爆头身亡，而本报的上一个记者被泥头车创死了。"

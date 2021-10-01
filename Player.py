@@ -2,14 +2,20 @@
 
 from Debug import Debug
 
+
 # 玩家类
 class Player:
     def __init__(self):
-        self._anxious=0 #焦虑值
-        self._resources=0 #资源值
-        self._healthy=100 #健康值
-        self._intelligence=10 #智力值
-        self._run=5 #行动力
+        self._anxious = 0
+        # 焦虑值
+        self._resources = 0
+        # 资源值
+        self._healthy = 100
+        # 健康值
+        self._intelligence = 10
+        # 智力值
+        self._run = 5
+        # 行动力
         self.onCreate()
     
     @property
