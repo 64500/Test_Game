@@ -7,12 +7,13 @@ import util.YAMLLoad
 
 jieshao_String = util.YAMLLoad.getYAMLDataAll('./GUI/ShengFenJieShao.yml')
 JvBen = util.YAMLLoad.getYAMLDataAll('./GUI/JvBenName.yml')
+windows_data = util.YAMLLoad.getYAMLDataAll('./config/String.yml')
 
 
 class Frame1(wx.Frame):
     # 定义主窗口
     def __init__(self, parent, id):
-        wx.Frame.__init__(self, parent, id=-1, title="文字游戏:资本家模拟器", pos=(100, 100), size=(600, 640))
+        wx.Frame.__init__(self, parent, id=-1, title=windows_data['GameName'], pos=(100, 100), size=(600, 640))
         panel = wx.Panel(self)
         title = wx.StaticText(panel, label='选择身份', pos=(100, 10))
         font = wx.Font(24, wx.DEFAULT, wx.FONTSTYLE_NORMAL, wx.NORMAL)
@@ -129,10 +130,7 @@ class Frame1(wx.Frame):
         self.XB.SetLabel('性别:女')
 
     def Click1(self, event):
-        self.title_2.SetLabel('''
-        海龟贵物：海外归来的高等生物，可以使用技能“在阳光下抽大麻”
-        可以保持低焦虑值
-        ''')
+        self.title_2.SetLabel(windows_data['jieshao_HaiGui'])
         self.SFShuXing_1.SetLabel('天赋：大闹公安')
         self.SFShuXing_2.SetLabel('天赋：西式自由')
         self.SFShuXing_3.SetLabel('天赋：高贵特权')
@@ -141,10 +139,7 @@ class Frame1(wx.Frame):
                              '初始资源点:' + str(Gamer.HaiGui.resources))
 
     def Click2(self, event):
-        self.title_2.SetLabel('''
-        天龙人：帝都的高等居民，可以使用技能“正黄旗贵族”
-        额外获得大量资源点
-        ''')
+        self.title_2.SetLabel(windows_data['jieshao_TianLongRen'])
         self.SFShuXing_1.SetLabel('天赋：高雅贵族')
         self.SFShuXing_2.SetLabel('天赋：拆迁之家')
         self.SFShuXing_3.SetLabel('天赋：无压高考')
@@ -153,10 +148,7 @@ class Frame1(wx.Frame):
                              '初始资源点:' + str(Gamer.TianLongRen.resources))
 
     def Click3(self, event):
-        self.title_2.SetLabel('''
-        拳师：分裂社会的恐怖分子，可以使用技能获得“CIA补贴“
-        经常狂暴鸿儒冲国男性
-        ''')
+        self.title_2.SetLabel(windows_data['jieshao_QuanShi'])
         self.SFShuXing_1.SetLabel('天赋：战斗公主')
         self.SFShuXing_2.SetLabel('天赋：煽动神言')
         self.SFShuXing_3.SetLabel('天赋：CIA兼职')
@@ -165,10 +157,7 @@ class Frame1(wx.Frame):
                              '初始资源点:' + str(Gamer.QuanShi.resources))
 
     def Click4(self, event):
-        self.title_2.SetLabel('''
-        网抑云：在网络平台上传播负能量的生物，可以使用技能”口红割腕“
-        经常在半夜听歌时狂暴流泪，疑似压力过大导致的压力马斯内
-        ''')
+        self.title_2.SetLabel(windows_data['jieshao_WangYiYun'])
         self.SFShuXing_1.SetLabel('天赋：生不出人')
         self.SFShuXing_2.SetLabel('天赋：口红割腕')
         self.SFShuXing_3.SetLabel('天赋：嘤嘤嘤嘤')
