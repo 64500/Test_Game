@@ -5,6 +5,8 @@ Events:
     # 事件发生时谁会收到
     # global 代表所有人，也可以理解为广播（例如，欧陆风云4更换时代时，所有国家都会收到这个事件）
     Receive: "global"
+    # 事件标题
+    Title: "DEBUG"
     # 事件描述
     Description: "这是一个测试事件"
     # 事件发生条件
@@ -17,9 +19,47 @@ Events:
     Delay:
     # 事件发生概率
     Random:
-    # 事件效果
-    Effect:
+    # 事件选项
+    Option:
+      # 选项名，可自定义
+      Select:
+        # 选项条件
+        SelectCheck:
+        # 选项文本
+        Text:
+        # 事件效果
+        Effect:
   TestEvent.002:
     Receive: "global"
     Description:
-  
+# 事件链
+EventChains:
+  # 事件链编号
+  TestEventChains.001:
+    # 起始事件
+    start:
+      TestEventChains.001.001:
+        # own 代表仅自己，大多数事件都是这样
+        Receive: "own"
+        Title: "一只黄油猫诞生了"
+        Description: "你可以决定他的未来"
+        Check:
+        StartDelay:
+        DeadLineDeLay:
+        Delay:
+        Random:
+        # 选项
+        Option:
+          Kill:
+            SelectCheck:
+            Text: "扼杀在摇篮里"
+            Effect:
+          keepIt:
+            SelectCheck:
+            Text: "我将抚养他"
+            Effect:
+    # 中间的过程事件
+    other:
+    # 结束事件，这些事件通常代表事件链正常结束，出现事件链的结局。当然也可以在起始事件和其他事件中提前结束事件链
+    end:
+
