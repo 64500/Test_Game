@@ -2,11 +2,10 @@
 import wx
 import Gamer
 import Start
+import yaml
 import util.YAMLLoad
 # 导入需要的模块
 
-jieshao_String = util.YAMLLoad.getYAMLDataAll('./GUI/ShengFenJieShao.yml')
-JvBen = util.YAMLLoad.getYAMLDataAll('./GUI/JvBenName.yml')
 windows_data = util.YAMLLoad.getYAMLDataAll('./config/String.yml')
 
 
@@ -19,26 +18,29 @@ class Frame1(wx.Frame):
         font = wx.Font(24, wx.DEFAULT, wx.FONTSTYLE_NORMAL, wx.NORMAL)
         title.SetFont(font)
 
-        self.rb1 = wx.RadioButton(panel, -1, label='拳师', pos=(10, 10), style=wx.RB_GROUP)
-        self.rb2 = wx.RadioButton(panel, -1, label='天龙人', pos=(10, 40))
-        self.rb3 = wx.RadioButton(panel, -1, label='海龟贵物', pos=(10, 70))
-        self.rb4 = wx.RadioButton(panel, -1, label='网抑云', pos=(10, 100))
-        self.rb5 = wx.RadioButton(panel, -1, label='海獭（写手）', pos=(10, 130))
-        self.rb6 = wx.RadioButton(panel, -1, label='做题家', pos=(10, 160))
-        self.rb7 = wx.RadioButton(panel, -1, label='张献忠', pos=(10, 190))
-        self.rb8 = wx.RadioButton(panel, -1, label='汉皇', pos=(10, 220))
-        self.rb9 = wx.RadioButton(panel, -1, label='左壬', pos=(10, 250))
-        self.rb10 = wx.RadioButton(panel, -1, label='码农', pos=(10, 280))
-        self.rb11 = wx.RadioButton(panel, -1, label='老司机', pos=(10, 310))
-        self.rb12 = wx.RadioButton(panel, -1, label='土木狗', pos=(10, 340))
-        self.rb13 = wx.RadioButton(panel, -1, label='公知', pos=(10, 370))
-        self.rb14 = wx.RadioButton(panel, -1, label='下水道', pos=(10, 400))
-        self.rb15 = wx.RadioButton(panel, -1, label='社畜', pos=(10, 430))
-        self.rb16 = wx.RadioButton(panel, -1, label='萌萌人', pos=(10, 460))
-        self.rb17 = wx.RadioButton(panel, -1, label='X批', pos=(10, 490))
-        self.rb18 = wx.RadioButton(panel, -1, label='电竞粉', pos=(10, 520))
+        # 以下代码创建了18个按钮（同一组），用于让玩家选择身份。[rb1 to rb18]
+        self.rb1 = wx.RadioButton(panel, -1, label=windows_data['SF']['name1'], pos=(10, 10), style=wx.RB_GROUP)
+        self.rb2 = wx.RadioButton(panel, -1, label=windows_data['SF']['name2'], pos=(10, 40))
+        self.rb3 = wx.RadioButton(panel, -1, label=windows_data['SF']['name3'], pos=(10, 70))
+        self.rb4 = wx.RadioButton(panel, -1, label=windows_data['SF']['name4'], pos=(10, 100))
+        self.rb5 = wx.RadioButton(panel, -1, label=windows_data['SF']['name5'], pos=(10, 130))
+        self.rb6 = wx.RadioButton(panel, -1, label=windows_data['SF']['name6'], pos=(10, 160))
+        self.rb7 = wx.RadioButton(panel, -1, label=windows_data['SF']['name7'], pos=(10, 190))
+        self.rb8 = wx.RadioButton(panel, -1, label=windows_data['SF']['name8'], pos=(10, 220))
+        self.rb9 = wx.RadioButton(panel, -1, label=windows_data['SF']['name9'], pos=(10, 250))
+        self.rb10 = wx.RadioButton(panel, -1, label=windows_data['SF']['name10'], pos=(10, 280))
+        self.rb11 = wx.RadioButton(panel, -1, label=windows_data['SF']['name11'], pos=(10, 310))
+        self.rb12 = wx.RadioButton(panel, -1, label=windows_data['SF']['name12'], pos=(10, 340))
+        self.rb13 = wx.RadioButton(panel, -1, label=windows_data['SF']['name13'], pos=(10, 370))
+        self.rb14 = wx.RadioButton(panel, -1, label=windows_data['SF']['name14'], pos=(10, 400))
+        self.rb15 = wx.RadioButton(panel, -1, label=windows_data['SF']['name15'], pos=(10, 430))
+        self.rb16 = wx.RadioButton(panel, -1, label=windows_data['SF']['name16'], pos=(10, 460))
+        self.rb17 = wx.RadioButton(panel, -1, label=windows_data['SF']['name17'], pos=(10, 490))
+        self.rb18 = wx.RadioButton(panel, -1, label=windows_data['SF']['name18'], pos=(10, 520))
 
-        self.title_2 = wx.StaticText(panel, label=jieshao_String['jieshao_QuanShi'], pos=(100, 60))
+        # 下一行代码创建了一个标签用于存放对于玩家所选择的身份的介绍。
+        self.title_2 = wx.StaticText(panel, label=windows_data['jieshao_QuanShi'], pos=(100, 60), style=wx.ST_NO_AUTORESIZE)
+
         self.Bind(wx.EVT_RADIOBUTTON, self.Click1, self.rb3)
         self.Bind(wx.EVT_RADIOBUTTON, self.Click2, self.rb2)
         self.Bind(wx.EVT_RADIOBUTTON, self.Click3, self.rb1)
@@ -98,7 +100,7 @@ class Frame1(wx.Frame):
         self.QueDing = wx.Button(panel, -1, label='开始游戏', pos=(480, 560))
         self.Bind(wx.EVT_BUTTON, self.Start, self.QueDing)
 
-        self.BeiJie = wx.StaticText(panel, -1, label=JvBen['JvBen1'], pos=(60, 400))
+        self.BeiJie = wx.StaticText(panel, -1, label=windows_data['JvBen']['JvBen1'], pos=(60, 400))
 
         self.JB1 = wx.Button(panel, -1, label='新风暴', pos=(100, 380))
         self.JB2 = wx.Button(panel, -1, label='大洪水', pos=(200, 380))
@@ -112,15 +114,15 @@ class Frame1(wx.Frame):
         self.Bind(wx.EVT_RADIOBUTTON, self.OnClick2, self.xb2)
 
     def InClick1(self, event):
-        name = JvBen['JvBen1']
+        name = windows_data['JvBen']['JvBen1']
         self.BeiJie.SetLabel(name)
 
     def InClick2(self, event):
-        name = JvBen['JvBen2']
+        name = windows_data['JvBen']['JvBen2']
         self.BeiJie.SetLabel(name)
 
     def InClick3(self, event):
-        name = JvBen['JvBen3']
+        name = windows_data['JvBen']['JvBen3']
         self.BeiJie.SetLabel(name)
 
     def OnClick1(self, event):
@@ -166,10 +168,7 @@ class Frame1(wx.Frame):
                              '初始资源点:' + str(Gamer.WangYiYun.resources))
 
     def Click5(self, event):
-        self.title_2.SetLabel('''
-        网文作家：除了跨性别繁殖之外，几乎什么都懂一点，可以使用
-        技能‘芝加哥打字机’，但部分写手会要求别人删文——“你能删一个小时吗”
-        ''')
+        self.title_2.SetLabel(windows_data['jieshao_ZuoJia'])
         self.SFShuXing_1.SetLabel('天赋：鸽子煲汤')
         self.SFShuXing_2.SetLabel('天赋：鸽子炒肉')
         self.SFShuXing_3.SetLabel('天赋：鸽子油炸')
@@ -178,10 +177,7 @@ class Frame1(wx.Frame):
                              '初始资源点:' + str(Gamer.TaTa.resources))
 
     def Click6(self, event):
-        self.title_2.SetLabel('''
-        做题家（卷王）：从小卷到大的鬼才，部分人的目标是去拱了城里的白菜
-        但由于经常高强度996和偶尔007，卷怪的身体强度一日不如一日。
-        ''')
+        self.title_2.SetLabel(windows_data['jieshao_ZuoTiJia'])
         self.SFShuXing_1.SetLabel('天赋：豪车土猪')
         self.SFShuXing_2.SetLabel('天赋：五三模拟')
         self.SFShuXing_3.SetLabel('天赋：铁人意志')
