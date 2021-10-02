@@ -12,6 +12,7 @@ windows_data = util.YAMLLoad.getYAMLDataAll('./config/String.yml')
 class Frame1(wx.Frame):
     # 定义主窗口
     def __init__(self, parent, id):
+        # 下一行代码设定了主窗口。
         wx.Frame.__init__(self, parent, id=-1, title=windows_data['GameName'], pos=(100, 100), size=(600, 640))
         panel = wx.Panel(self)
         title = wx.StaticText(panel, label='选择身份', pos=(100, 10))
@@ -39,8 +40,10 @@ class Frame1(wx.Frame):
         self.rb18 = wx.RadioButton(panel, -1, label=windows_data['SF']['name18'], pos=(10, 520))
 
         # 下一行代码创建了一个标签用于存放对于玩家所选择的身份的介绍。
-        self.title_2 = wx.StaticText(panel, label=windows_data['jieshao_QuanShi'], pos=(100, 60), style=wx.ST_NO_AUTORESIZE)
+        self.title_2 = wx.StaticText(panel, label='%10s\n%10s'.format(windows_data['jieshao_QuanShi']), pos=(100, 60),
+                                     style=wx.ST_NO_AUTORESIZE)
 
+        # 以下代码块使用Bind方法将Click系列函数与上面的选择按钮绑定在一起。
         self.Bind(wx.EVT_RADIOBUTTON, self.Click1, self.rb3)
         self.Bind(wx.EVT_RADIOBUTTON, self.Click2, self.rb2)
         self.Bind(wx.EVT_RADIOBUTTON, self.Click3, self.rb1)
