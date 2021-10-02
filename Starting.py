@@ -40,8 +40,7 @@ class Frame1(wx.Frame):
         self.rb18 = wx.RadioButton(panel, -1, label=windows_data['SF']['name18'], pos=(10, 520))
 
         # 下一行代码创建了一个标签用于存放对于玩家所选择的身份的介绍。
-        self.title_2 = wx.StaticText(panel, label='%10s\n%10s'.format(windows_data['jieshao_QuanShi']), pos=(100, 60),
-                                     style=wx.ST_NO_AUTORESIZE)
+        self.title_2 = wx.StaticText(panel, label=windows_data['jieshao_QuanShi'], pos=(100, 60))
 
         # 以下代码块使用Bind方法将Click系列函数与上面的选择按钮绑定在一起。
         self.Bind(wx.EVT_RADIOBUTTON, self.Click1, self.rb3)
@@ -63,16 +62,17 @@ class Frame1(wx.Frame):
         self.Bind(wx.EVT_RADIOBUTTON, self.Click17, self.rb17)
         self.Bind(wx.EVT_RADIOBUTTON, self.Click18, self.rb18)
 
+        # 第一组通用天赋选择模块。
         self.TongYongShuXing1 = wx.CheckBox(panel, id=-1, label='天赋：量子速读', pos=(100, 150))
         self.TongYongShuXing2 = wx.CheckBox(panel, id=-1, label='天赋：海豹抽卡', pos=(100, 180))
         self.TongYongShuXing3 = wx.CheckBox(panel, id=-1, label='天赋：蓄意轰拳', pos=(100, 210))
         self.TongYongShuXing4 = wx.CheckBox(panel, id=-1, label='天赋：涩图雷达', pos=(100, 240))
-
+        # 第二组通用天赋选择模块。
         self.TongYongShuXing5 = wx.CheckBox(panel, id=-1, label='天赋：百毒不侵', pos=(240, 150))
         self.TongYongShuXing6 = wx.CheckBox(panel, id=-1, label='天赋：键盘钢琴', pos=(240, 180))
         self.TongYongShuXing7 = wx.CheckBox(panel, id=-1, label='天赋：祖安艺术', pos=(240, 210))
         self.TongYongShuXing8 = wx.CheckBox(panel, id=-1, label='天赋：电子越共', pos=(240, 240))
-
+        # 第三组通用天赋选择模块。
         self.TongYongShuXing9 = wx.CheckBox(panel, id=-1, label='天赋：打工皇帝', pos=(380, 150))
         self.TongYongShuXing10 = wx.CheckBox(panel, id=-1, label='天赋：手搓高达', pos=(380, 180))
         self.TongYongShuXing11 = wx.CheckBox(panel, id=-1, label='天赋：夜行物种', pos=(380, 210))
@@ -116,6 +116,7 @@ class Frame1(wx.Frame):
         self.Bind(wx.EVT_RADIOBUTTON, self.OnClick1, self.xb1)
         self.Bind(wx.EVT_RADIOBUTTON, self.OnClick2, self.xb2)
 
+    # InClick1-3系列函数的功能是与剧本按钮绑定，点击按钮触发函数修改‘BeiJie’标签内的游戏剧本说明。
     def InClick1(self, event):
         name = windows_data['JvBen']['JvBen1']
         self.BeiJie.SetLabel(name)
@@ -189,10 +190,7 @@ class Frame1(wx.Frame):
                              '初始资源点:' + str(Gamer.ZuoTiJia.resources))
 
     def Click7(self, event):
-        self.title_2.SetLabel('''
-        张献忠：我决定那个从今天开始杀人，一天杀一个，直到那个过年。
-        杀杀杀杀杀杀杀杀杀杀杀杀杀杀杀杀杀杀杀杀杀杀杀杀杀杀杀杀杀。
-        ''')
+        self.title_2.SetLabel(windows_data['jieshao_ZhangXianZhong'])
         self.SFShuXing_1.SetLabel('天赋：高效屠戮')
         self.SFShuXing_2.SetLabel('天赋：魔怔狂热')
         self.SFShuXing_3.SetLabel('天赋：超级加速')
@@ -201,11 +199,7 @@ class Frame1(wx.Frame):
                              '初始资源点:' + str(Gamer.ZhuanXianZong.resources))
 
     def Click8(self, event):
-        self.title_2.SetLabel('''
-        大民族主义：我们震坦真是太厉害啦！永恒之城其实是震坦人建造的！西方
-        金字塔是波拿巴超人一人抗五万吨石块一个月造起来欺骗国民的！
-        天子守国门！君王死社稷！嗷嗷嗷嗷嗷嗷嗷嗷嗷嗷嗷嗷嗷嗷嗷嗷嗷嗷！！！
-        ''')
+        self.title_2.SetLabel(windows_data['jieshao_HanHuang'])
         self.SFShuXing_1.SetLabel('天赋：伟大国度')
         self.SFShuXing_2.SetLabel('天赋：民族狂热')
         self.SFShuXing_3.SetLabel('天赋：尼哥猎手')
@@ -214,11 +208,7 @@ class Frame1(wx.Frame):
                              '初始资源点:' + str(Gamer.HanHuang.resources))
 
     def Click9(self, event):
-        self.title_2.SetLabel('''
-        左翼：异端最可怕啦！呼啦啦，发动魔法——革你左籍！
-        哎，怎么说好呢，好难写哦——苏，马，列，托，猫，甚至
-        还有那呼啦呼啦呼啦的安娜其~~~
-        ''')
+        self.title_2.SetLabel(windows_data['jieshao_ZuoRen'])
         self.SFShuXing_1.SetLabel('天赋：革你左籍')
         self.SFShuXing_2.SetLabel('天赋：冲击水晶')
         self.SFShuXing_3.SetLabel('天赋：下乡实践')
@@ -227,10 +217,7 @@ class Frame1(wx.Frame):
                              '初始资源点:' + str(Gamer.GeMingDang.resources))
 
     def Click10(self, event):
-        self.title_2.SetLabel('''
-        程序员：程序和我，有一个能跑就行。
-        整体屎山挖粪，应该去买一瓶护发水来着————
-        ''')
+        self.title_2.SetLabel(windows_data['jieshao_ChengXvYuan'])
         self.SFShuXing_1.SetLabel('天赋：删库跑路')
         self.SFShuXing_2.SetLabel('天赋：我即天网')
         self.SFShuXing_3.SetLabel('天赋：电子幽灵')
@@ -239,9 +226,7 @@ class Frame1(wx.Frame):
                              '初始资源点:' + str(Gamer.MaNon.resources))
 
     def Click11(self, event):
-        self.title_2.SetLabel('''
-        老司机：你只管开车，办法由老爹来想。   
-        ''')
+        self.title_2.SetLabel(windows_data['jieshao_LSP'])
         self.SFShuXing_1.SetLabel('天赋：做个好人')
         self.SFShuXing_2.SetLabel('天赋：见番报号')
         self.SFShuXing_3.SetLabel('天赋：网盘会员')
@@ -250,9 +235,7 @@ class Frame1(wx.Frame):
                              '初始资源点:' + str(Gamer.LSP.resources))
 
     def Click12(self, event):
-        self.title_2.SetLabel('''
-        土木狗：别水群啦，包工头喊你吃饭了!
-        ''')
+        self.title_2.SetLabel(windows_data['jieshao_TuMuGou'])
         self.SFShuXing_1.SetLabel('天赋：提桶跑路')
         self.SFShuXing_2.SetLabel('天赋：伟大工程')
         self.SFShuXing_3.SetLabel('天赋：打灰超人')
@@ -261,11 +244,7 @@ class Frame1(wx.Frame):
                              '初始资源点:' + str(Gamer.HanHuang.resources))
 
     def Click13(self, event):
-        self.title_2.SetLabel('''
-        公知：灯塔全民免费医保！在微信军事基地部署有1000艘医疗船！高速公路
-        不收费，人人买得起帝国大厦，开得起核动力飞车！注重“快乐教育”，孩子
-        们课业压力为负五十万！公司关怀员工，给他们每个人500%股份！
-        ''')
+        self.title_2.SetLabel(windows_data['jieshao_GongZhi'])
         self.SFShuXing_1.SetLabel('天赋：刚下飞机')
         self.SFShuXing_2.SetLabel('天赋：四岛补贴')
         self.SFShuXing_3.SetLabel('天赋：精神西人')
@@ -274,10 +253,7 @@ class Frame1(wx.Frame):
                              '初始资源点:' + str(Gamer.GongZhi.resources))
 
     def Click14(self, event):
-        self.title_2.SetLabel('''
-                躺平人：谢邀，天桥下睡得很舒服，每天可以免费喝水吃小绿藻
-                我超！我生活的无忧无虑！
-                ''')
+        self.title_2.SetLabel(windows_data['jieshao_TangPing'])
         self.SFShuXing_1.SetLabel('天赋：光合作用')
         self.SFShuXing_2.SetLabel('天赋：自我进化')
         self.SFShuXing_3.SetLabel('天赋：原始居民')
@@ -286,10 +262,7 @@ class Frame1(wx.Frame):
                              '初始资源点:' + str(Gamer.TangPing.resources))
 
     def Click15(self, event):
-        self.title_2.SetLabel('''
-        社畜：心口有点疼，现在是几点？我去公司天台晾个衣服——
-        哎？老板好！我一定会在今年让您开上迈巴赫的！
-        ''')
+        self.title_2.SetLabel(windows_data['jieshao_SheChu'])
         self.SFShuXing_1.SetLabel('天赋：996007')
         self.SFShuXing_2.SetLabel('天赋：猝死转生')
         self.SFShuXing_3.SetLabel('天赋：半泽直树')
@@ -298,11 +271,7 @@ class Frame1(wx.Frame):
                              '初始资源点:' + str(Gamer.SheChu.resources))
 
     def Click16(self, event):
-        self.title_2.SetLabel('''
-            二刺螈：（（（（（（（（（呐）））））））））
-                   （（（（（（（（（呐）））））））））
-                   （（（（（（（（（呐）））））））））                     
-                ''')
+        self.title_2.SetLabel(windows_data['jieshao_2CiYuan'])
 
         self.SFShuXing_1.SetLabel('天赋：人体声呐')
         self.SFShuXing_2.SetLabel('天赋：穿越之门')
@@ -312,9 +281,7 @@ class Frame1(wx.Frame):
                              '初始资源点:' + str(Gamer.TwoWorld.resources))
 
     def Click17(self, event):
-        self.title_2.SetLabel('''
-                X批：我是充648好呢，还是充648？
-                ''')
+        self.title_2.SetLabel(windows_data['jieshao_XPi'])
         self.SFShuXing_1.SetLabel('天赋：面包芝士')
         self.SFShuXing_2.SetLabel('天赋：农药中毒')
         self.SFShuXing_3.SetLabel('天赋：文化卫兵')
@@ -323,10 +290,7 @@ class Frame1(wx.Frame):
                              '初始资源点:' + str(Gamer.XPi.resources))
 
     def Click18(self, event):
-        self.title_2.SetLabel('''
-        电竞粉：部分人会打泰拳，部分人会御剑，还有部分人仰卧起坐的能力很强
-        喜欢睡在棺材里，时不时出来看一眼。
-                ''')
+        self.title_2.SetLabel(windows_data['jieshao_DianJingFen'])
         self.SFShuXing_1.SetLabel('天赋：抗吧大佬')
         self.SFShuXing_2.SetLabel('天赋：我行我上')
         self.SFShuXing_3.SetLabel('天赋：一致对外')
@@ -335,13 +299,16 @@ class Frame1(wx.Frame):
                              '初始资源点:' + str(Gamer.LPL.resources))
 
     def Start(self, event):
+        # i为一个计数器，用来统计被激活的SFShuXing系列按钮的个数。
         i = 0
+        # 以下代码将被激活的按钮个数统计到i中。
         if self.SFShuXing_1.GetValue() == True:
             i = i+1
         if self.SFShuXing_2.GetValue() == True:
             i = i+1
         if self.SFShuXing_3.GetValue() == True:
             i = i+1
+        # 如果没有按钮被激活，则弹出错误提示框。 如果选择按钮超过一个，提示选择过多错误。
         if i > 1:
             errorMessage = wx.MessageDialog(None, '只能拥有一个身份天赋！', '提示：', wx.YES_DEFAULT | wx.ICON_QUESTION)
             if errorMessage.ShowModal() == wx.ID_YES:
@@ -350,6 +317,8 @@ class Frame1(wx.Frame):
             errorMessage2 = wx.MessageDialog(None, '请选择身份天赋！！！', '提示：', wx.YES_DEFAULT | wx.ICON_QUESTION)
             if errorMessage2.ShowModal() == wx.ID_YES:
                 errorMessage2.Destroy()
+
+        # i2也是一个计数器，用来统计玩家选择的通用天赋的个数。
         i2 = 0
         if self.TongYongShuXing1.GetValue() == True:
             i2 = i2 + 1
