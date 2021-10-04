@@ -6,13 +6,112 @@ Character:
     Name: "拳师"
     # 角色描述
     Description: "分裂社会的恐怖分子，经常刺杀男性网约车司机,但该职业容易被逮捕。"
-    # 角色描述
+    # 角色数据
     Value:
+      # 资源点
       Resources: 4
+      # 能力值
       Intelligence: 5
   tianlongren:
     Name: "天龙人"
     Description: "帝都的高等居民，可以使用技能“正黄旗贵族”额外获得大量资源点"
     Value:
       Resources: 50
+      Intelligence: 10
+  haigui:
+    Name: "海龟贵物"
+    Description: "海龟贵物：海外归来的留学生，但与其它人不同的是，这批‘海龟’已经被西方错误价值观洗脑了，他们大肆反对祖国，散播不良弱智言论。"
+    Value:
+      Resources: 20
+      Intelligence: 8
+  wangyiyun:
+    Name: "网抑云"
+    Description: "网抑云：在网络平台上传播负能量的生物，可以使用技能”口红割腕“经常在半夜听歌时狂暴流泪，疑似压力过大导致的压力马斯内"
+    Value:
+      Resources: 2
+      Intelligence: 8
+  zuojia:
+    Name: "写手"
+    Description: "网文作家：除了跨性别繁殖之外，几乎什么都懂一点，可以使用技能‘芝加哥打字机’，但部分写手会要求别人删文——“你能删一个小时吗”"
+    Value:
+      Resources: 5
+      Intelligence: 14
+  zuotijia:
+    Name: "做题家"
+    Description: "做题家（卷王）：从小卷到大的鬼才，部分人的目标是去拱了城里的白菜。但由于经常高强度996和偶尔007，卷怪的身体强度一日不如一日。"
+    Value:
+      Resources: 5
+      Intelligence: 18
+  zhangxianzhong:
+    Name: "张献忠"
+    Description: "张献忠：我决定那个从今天开始杀人，一天杀一个，直到那个过年。杀杀杀杀杀杀杀杀杀杀杀杀杀杀杀杀杀杀杀杀杀杀杀杀杀杀杀杀杀。"
+    Value:
+      Resources: 5
+      Intelligence: 10
+  hanhuang:
+    Name: "汉皇"
+    Description: "大民族主义：我们震坦真是太厉害啦！永恒之城其实是震坦人建造的！西方金字塔是波拿巴超人一人抗五万吨石块一个月造起来欺骗国民的！天
+    子守国门！君王死社稷！嗷嗷嗷嗷嗷嗷嗷嗷嗷嗷嗷嗷嗷嗷嗷嗷嗷嗷！！！"
+    Value:
+      Resources: 5
+      Intelligence: 6
+  zuoren:
+    Name: "左人"
+    Description: "左翼：康米正统！猫猫正统！先知正统！慈父正统！导师正统！社民正统！（网络角斗场）。我超你们都是啥寄吧玩意啊————革你左籍！"
+    Value:
+      Resources: 8
+      Intelligence: 14
+  manon:
+    Name: "码农"
+    Description: "程序员：程序和我，有一个能跑就行。屎山挖粪，应该去买一瓶护发水来着————"
+    Value:
+      Resources: 10
+      Intelligence: 15
+  LSP:
+    Name: "涩批老爹"
+    Description: "老司机：你只管开车，办法由老爹来想。"
+    Value:
+      Resources: 5
+      Intelligence: 10
+  tumugou:
+    Name: "土木狗"
+    Description: "土木狗：别水群啦，包工头喊你吃饭了!"
+    Value:
+      Resources: 8
+      Intelligence: 15
+  gongzhi:
+    Name: "公知"
+    Description: "公知：灯塔全民免费医保！在微信军事基地部署有1000艘医疗船！高速公路不收费，人人买得起帝国大厦，开得起核动力飞车！注重“快乐教育”，孩子们课业压力为负五十万！公司关怀员工，给他们每个人500%股份！"
+    Value:
+      Resources: 50
+      Intelligence: 4
+  tangping:
+    Name: "下水道"
+    Description: "躺平人：谢邀，天桥下睡得很舒服，每天可以免费喝水吃小绿藻我超！我生活的无忧无虑！"
+    Value:
+      Resources: 0
+      Intelligence: 10
+  shechu:
+    Name: "社畜"
+    Description: "社畜：心口有点疼，现在是几点？我去公司天台晾个衣服——哎？老板好！我一定会在今年让您开上迈巴赫的！"
+    Value:
+      Resources: 5
+      Intelligence: 12
+  erciyuan:
+    Name: "二刺猿"
+    Description: "二刺螈：（（（（（（（（（呐）））））））））（（（（（（（（（呐）））））））））（（（（（（（（（呐）））））））））"
+    Value:
+      Resources: 5
+      Intelligence: 10
+  XPi:
+    Name: "X批"
+    Description: "X批：我是充648好呢，还是充648？"
+    Value:
+      Resources: 5
+      Intelligence: 8
+  LPL:
+    Name: "电竞粉"
+    Description: "电竞粉：部分人会打泰拳，部分人会御剑，还有部分人仰卧起坐的能力很强喜欢睡在棺材里，时不时出来看一眼。"
+    Value:
+      Resources: 5
       Intelligence: 10

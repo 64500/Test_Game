@@ -1,12 +1,13 @@
 # -*- coding:utf-8 -*-
 import wx
-import Gamer
 import Start
 import yaml
 import util.YAMLLoad
+from GlobalControl import Global
 # 导入需要的模块
 
 windows_data = util.YAMLLoad.getYAMLDataAll('./config/String.yml')
+chara = util.YAMLLoad.getYAMLDataAll('./config/Character.yml')
 
 
 class Frame1(wx.Frame):
@@ -38,6 +39,10 @@ class Frame1(wx.Frame):
         self.rb16 = wx.RadioButton(panel, -1, label=windows_data['SF']['name16'], pos=(10, 460))
         self.rb17 = wx.RadioButton(panel, -1, label=windows_data['SF']['name17'], pos=(10, 490))
         self.rb18 = wx.RadioButton(panel, -1, label=windows_data['SF']['name18'], pos=(10, 520))
+
+        globals = Global()
+        globals.Intelligence = chara['Character']['tianlongren']['Value']['Intelligence']
+        globals.Resources = chara['Character']['tianlongren']['Value']['Resources']
 
         # 下一行代码创建了一个标签用于存放对于玩家所选择的身份的介绍。
         self.title_2 = wx.StaticText(panel, label=windows_data['jieshao_QuanShi'], pos=(100, 60))
@@ -86,12 +91,12 @@ class Frame1(wx.Frame):
         self.SFShuXing_2 = wx.CheckBox(panel, id=-1, label='天赋：煽动神言', pos=(240, 340))
         self.SFShuXing_3 = wx.CheckBox(panel, id=-1, label='天赋：CIA兼职', pos=(380, 340))
 
-        ChuShi = []
-        self.ChuShiZiYuan = wx.ComboBox(panel, id=-1, choices=ChuShi, pos=(100, 360))
+        # ChuShi = []
+        # self.ChuShiZiYuan = wx.ComboBox(panel, id=-1, choices=ChuShi, pos=(100, 360))
 
         self.ZTLian = wx.StaticText(panel, id=-1,
-                                    label='属性总结：\n综合能力值：' + str(Gamer.QuanShi.intelligence) +
-                                          '初始资源点:' + str(Gamer.QuanShi.resources), pos=(100, 510))
+                                    label='属性总结：\n综合能力值：' + str(chara['Character']['haigui']['Value']['Intelligence']) +
+                                          '初始资源点:' + str(chara['Character']['haigui']['Value']['Resources']), pos=(100, 510))
 
         self.xb1 = wx.RadioButton(panel, -1, label='男', pos=(300, 10), style=wx.RB_GROUP)
         self.xb2 = wx.RadioButton(panel, -1, label='女', pos=(260, 10))
@@ -141,8 +146,8 @@ class Frame1(wx.Frame):
         self.SFShuXing_2.SetLabel('天赋：西式自由')
         self.SFShuXing_3.SetLabel('天赋：高贵特权')
 
-        self.ZTLian.SetLabel('属性总结：\n综合能力值：' + str(Gamer.HaiGui.intelligence) +
-                             '初始资源点:' + str(Gamer.HaiGui.resources))
+        self.ZTLian.SetLabel('属性总结：\n综合能力值：' + str(chara['Character']['haigui']['Value']['Intelligence']) +
+                             '初始资源点:' + str(chara['Character']['haigui']['Value']['Resources']))
 
     def Click2(self, event):
         self.title_2.SetLabel(windows_data['jieshao_TianLongRen'])
@@ -150,8 +155,8 @@ class Frame1(wx.Frame):
         self.SFShuXing_2.SetLabel('天赋：拆迁之家')
         self.SFShuXing_3.SetLabel('天赋：无压高考')
 
-        self.ZTLian.SetLabel('属性总结：\n综合能力值:' + str(Gamer.TianLongRen.intelligence) +
-                             '初始资源点:' + str(Gamer.TianLongRen.resources))
+        self.ZTLian.SetLabel('属性总结：\n综合能力值:' + str(chara['Character']['tianlongren']['Value']['Intelligence']) +
+                             '初始资源点:' + str(chara['Character']['tianlongren']['Value']['Resources']))
 
     def Click3(self, event):
         self.title_2.SetLabel(windows_data['jieshao_QuanShi'])
@@ -159,17 +164,16 @@ class Frame1(wx.Frame):
         self.SFShuXing_2.SetLabel('天赋：煽动神言')
         self.SFShuXing_3.SetLabel('天赋：CIA兼职')
 
-        self.ZTLian.SetLabel('属性总结：\n综合能力值:' + str(Gamer.QuanShi.intelligence) +
-                             '初始资源点:' + str(Gamer.QuanShi.resources))
+        self.ZTLian.SetLabel('属性总结：\n综合能力值:' + str(chara['Character']['quanshi']['Value']['Intelligence']) +
+                             '初始资源点:' + str(chara['Character']['quanshi']['Value']['Resources']))
 
     def Click4(self, event):
         self.title_2.SetLabel(windows_data['jieshao_WangYiYun'])
         self.SFShuXing_1.SetLabel('天赋：生不出人')
         self.SFShuXing_2.SetLabel('天赋：口红割腕')
         self.SFShuXing_3.SetLabel('天赋：嘤嘤嘤嘤')
-
-        self.ZTLian.SetLabel('属性总结：\n综合能力值:'+str(Gamer.WangYiYun.intelligence) +
-                             '初始资源点:' + str(Gamer.WangYiYun.resources))
+        self.ZTLian.SetLabel('属性总结：\n综合能力值:'+str(chara['Character']['wangyiyun']['Value']['Intelligence']) +
+                             '初始资源点:' + str(chara['Character']['wangyiyun']['Value']['Resources']))
 
     def Click5(self, event):
         self.title_2.SetLabel(windows_data['jieshao_ZuoJia'])
@@ -177,8 +181,8 @@ class Frame1(wx.Frame):
         self.SFShuXing_2.SetLabel('天赋：鸽子炒肉')
         self.SFShuXing_3.SetLabel('天赋：鸽子油炸')
 
-        self.ZTLian.SetLabel('属性总结：\n综合能力值:'+str(Gamer.TaTa.intelligence) +
-                             '初始资源点:' + str(Gamer.TaTa.resources))
+        self.ZTLian.SetLabel('属性总结：\n综合能力值:'+str(chara['Character']['zuojia']['Value']['Intelligence']) +
+                             '初始资源点:' + str(chara['Character']['zuojia']['Value']['Resources']))
 
     def Click6(self, event):
         self.title_2.SetLabel(windows_data['jieshao_ZuoTiJia'])
@@ -186,8 +190,8 @@ class Frame1(wx.Frame):
         self.SFShuXing_2.SetLabel('天赋：五三模拟')
         self.SFShuXing_3.SetLabel('天赋：铁人意志')
 
-        self.ZTLian.SetLabel('属性总结：\n综合能力值:'+str(Gamer.ZuoTiJia.intelligence) +
-                             '初始资源点:' + str(Gamer.ZuoTiJia.resources))
+        self.ZTLian.SetLabel('属性总结：\n综合能力值:'+str(chara['Character']['zuotijia']['Value']['Intelligence']) +
+                             '初始资源点:' + str(chara['Character']['zuotijia']['Value']['Resources']))
 
     def Click7(self, event):
         self.title_2.SetLabel(windows_data['jieshao_ZhangXianZhong'])
@@ -195,8 +199,8 @@ class Frame1(wx.Frame):
         self.SFShuXing_2.SetLabel('天赋：魔怔狂热')
         self.SFShuXing_3.SetLabel('天赋：超级加速')
 
-        self.ZTLian.SetLabel('属性总结：\n综合能力值:'+str(Gamer.ZhuanXianZong.intelligence) +
-                             '初始资源点:' + str(Gamer.ZhuanXianZong.resources))
+        self.ZTLian.SetLabel('属性总结：\n综合能力值:'+str(chara['Character']['zhangxianzhong']['Value']['Intelligence']) +
+                             '初始资源点:' + str(chara['Character']['zhangxianzhong']['Value']['Resources']))
 
     def Click8(self, event):
         self.title_2.SetLabel(windows_data['jieshao_HanHuang'])
@@ -204,8 +208,8 @@ class Frame1(wx.Frame):
         self.SFShuXing_2.SetLabel('天赋：民族狂热')
         self.SFShuXing_3.SetLabel('天赋：尼哥猎手')
 
-        self.ZTLian.SetLabel('属性总结：\n综合能力值:' + str(Gamer.HanHuang.intelligence) +
-                             '初始资源点:' + str(Gamer.HanHuang.resources))
+        self.ZTLian.SetLabel('属性总结：\n综合能力值:' + str(chara['Character']['hanhuang']['Value']['Intelligence']) +
+                             '初始资源点:' + str(chara['Character']['hanhuang']['Value']['Resources']))
 
     def Click9(self, event):
         self.title_2.SetLabel(windows_data['jieshao_ZuoRen'])
@@ -213,8 +217,8 @@ class Frame1(wx.Frame):
         self.SFShuXing_2.SetLabel('天赋：冲击水晶')
         self.SFShuXing_3.SetLabel('天赋：下乡实践')
 
-        self.ZTLian.SetLabel('属性总结：\n综合能力值:' + str(Gamer.GeMingDang.intelligence) +
-                             '初始资源点:' + str(Gamer.GeMingDang.resources))
+        self.ZTLian.SetLabel('属性总结：\n综合能力值:' + str(chara['Character']['zuoren']['Value']['Intelligence']) +
+                             '初始资源点:' + str(chara['Character']['zuoren']['Value']['Resources']))
 
     def Click10(self, event):
         self.title_2.SetLabel(windows_data['jieshao_ChengXvYuan'])
@@ -222,8 +226,8 @@ class Frame1(wx.Frame):
         self.SFShuXing_2.SetLabel('天赋：我即天网')
         self.SFShuXing_3.SetLabel('天赋：电子幽灵')
 
-        self.ZTLian.SetLabel('属性总结：\n综合能力值:' + str(Gamer.MaNon.intelligence) +
-                             '初始资源点:' + str(Gamer.MaNon.resources))
+        self.ZTLian.SetLabel('属性总结：\n综合能力值:' + str(chara['Character']['manon']['Value']['Intelligence']) +
+                             '初始资源点:' + str(chara['Character']['manon']['Value']['Intelligence']))
 
     def Click11(self, event):
         self.title_2.SetLabel(windows_data['jieshao_LSP'])
@@ -231,8 +235,8 @@ class Frame1(wx.Frame):
         self.SFShuXing_2.SetLabel('天赋：见番报号')
         self.SFShuXing_3.SetLabel('天赋：网盘会员')
 
-        self.ZTLian.SetLabel('属性总结：\n综合能力值:' + str(Gamer.LSP.intelligence) +
-                             '初始资源点:' + str(Gamer.LSP.resources))
+        self.ZTLian.SetLabel('属性总结：\n综合能力值:' + str(chara['Character']['LSP']['Value']['Intelligence']) +
+                             '初始资源点:' + str(chara['Character']['LSP']['Value']['Resources']))
 
     def Click12(self, event):
         self.title_2.SetLabel(windows_data['jieshao_TuMuGou'])
@@ -240,8 +244,8 @@ class Frame1(wx.Frame):
         self.SFShuXing_2.SetLabel('天赋：伟大工程')
         self.SFShuXing_3.SetLabel('天赋：打灰超人')
 
-        self.ZTLian.SetLabel('属性总结：\n综合能力值:' + str(Gamer.HanHuang.intelligence) +
-                             '初始资源点:' + str(Gamer.HanHuang.resources))
+        self.ZTLian.SetLabel('属性总结：\n综合能力值:' + str(chara['Character']['tumugou']['Value']['Intelligence']) +
+                             '初始资源点:' + str(chara['Character']['tumugou']['Value']['Resources']))
 
     def Click13(self, event):
         self.title_2.SetLabel(windows_data['jieshao_GongZhi'])
@@ -249,8 +253,8 @@ class Frame1(wx.Frame):
         self.SFShuXing_2.SetLabel('天赋：四岛补贴')
         self.SFShuXing_3.SetLabel('天赋：精神西人')
 
-        self.ZTLian.SetLabel('属性总结：\n综合能力值:' + str(Gamer.GongZhi.intelligence) +
-                             '初始资源点:' + str(Gamer.GongZhi.resources))
+        self.ZTLian.SetLabel('属性总结：\n综合能力值:' + str(chara['Character']['gongzhi']['Value']['Intelligence']) +
+                             '初始资源点:' + str(chara['Character']['gongzhi']['Value']['Resources']))
 
     def Click14(self, event):
         self.title_2.SetLabel(windows_data['jieshao_TangPing'])
@@ -258,8 +262,8 @@ class Frame1(wx.Frame):
         self.SFShuXing_2.SetLabel('天赋：自我进化')
         self.SFShuXing_3.SetLabel('天赋：原始居民')
 
-        self.ZTLian.SetLabel('属性总结：\n综合能力值:' + str(Gamer.TangPing.intelligence) +
-                             '初始资源点:' + str(Gamer.TangPing.resources))
+        self.ZTLian.SetLabel('属性总结：\n综合能力值:' + str(chara['Character']['tangping']['Value']['Intelligence']) +
+                             '初始资源点:' + str(chara['Character']['tangping']['Value']['Resources']))
 
     def Click15(self, event):
         self.title_2.SetLabel(windows_data['jieshao_SheChu'])
@@ -267,8 +271,8 @@ class Frame1(wx.Frame):
         self.SFShuXing_2.SetLabel('天赋：猝死转生')
         self.SFShuXing_3.SetLabel('天赋：半泽直树')
 
-        self.ZTLian.SetLabel('属性总结：\n综合能力值:' + str(Gamer.SheChu.intelligence) +
-                             '初始资源点:' + str(Gamer.SheChu.resources))
+        self.ZTLian.SetLabel('属性总结：\n综合能力值:' + str(chara['Character']['shechu']['Value']['Intelligence']) +
+                             '初始资源点:' + str(chara['Character']['shechu']['Value']['Resources']))
 
     def Click16(self, event):
         self.title_2.SetLabel(windows_data['jieshao_2CiYuan'])
@@ -277,8 +281,8 @@ class Frame1(wx.Frame):
         self.SFShuXing_2.SetLabel('天赋：穿越之门')
         self.SFShuXing_3.SetLabel('天赋：缝合生物')
 
-        self.ZTLian.SetLabel('属性总结：\n综合能力值:' + str(Gamer.TwoWorld.intelligence) +
-                             '初始资源点:' + str(Gamer.TwoWorld.resources))
+        self.ZTLian.SetLabel('属性总结：\n综合能力值:' + str(chara['Character']['erciyuan']['Value']['Intelligence']) +
+                             '初始资源点:' + str(chara['Character']['erciyuan']['Value']['Resources']))
 
     def Click17(self, event):
         self.title_2.SetLabel(windows_data['jieshao_XPi'])
@@ -286,8 +290,8 @@ class Frame1(wx.Frame):
         self.SFShuXing_2.SetLabel('天赋：农药中毒')
         self.SFShuXing_3.SetLabel('天赋：文化卫兵')
 
-        self.ZTLian.SetLabel('属性总结：\n综合能力值:' + str(Gamer.XPi.intelligence) +
-                             '初始资源点:' + str(Gamer.XPi.resources))
+        self.ZTLian.SetLabel('属性总结：\n综合能力值:' + str(chara['Character']['XPi']['Value']['Intelligence']) +
+                             '初始资源点:' + str(chara['Character']['XPi']['Value']['Resources']))
 
     def Click18(self, event):
         self.title_2.SetLabel(windows_data['jieshao_DianJingFen'])
@@ -295,8 +299,8 @@ class Frame1(wx.Frame):
         self.SFShuXing_2.SetLabel('天赋：我行我上')
         self.SFShuXing_3.SetLabel('天赋：一致对外')
 
-        self.ZTLian.SetLabel('属性总结：\n综合能力值:' + str(Gamer.LPL.intelligence) +
-                             '初始资源点:' + str(Gamer.LPL.resources))
+        self.ZTLian.SetLabel('属性总结：\n综合能力值:' + str(chara['Character']['LPL']['Value']['Intelligence']) +
+                             '初始资源点:' + str(chara['Character']['LPL']['Value']['Resources']))
 
     def Start(self, event):
         # i为一个计数器，用来统计被激活的SFShuXing系列按钮的个数。
