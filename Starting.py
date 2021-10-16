@@ -15,6 +15,10 @@ class Frame1(wx.Frame):
     def __init__(self, parent, id):
         # 下一行代码设定了主窗口。
         wx.Frame.__init__(self, parent, id=-1, title=windows_data['GameName'], pos=(100, 100), size=(600, 640))
+
+        self.data_1 = 0
+        self.data_2 = 0
+
         panel = wx.Panel(self)
         title = wx.StaticText(panel, label='选择身份', pos=(100, 10))
         font = wx.Font(24, wx.DEFAULT, wx.FONTSTYLE_NORMAL, wx.NORMAL)
@@ -39,10 +43,6 @@ class Frame1(wx.Frame):
         self.rb16 = wx.RadioButton(panel, -1, label=windows_data['SF']['name16'], pos=(10, 460))
         self.rb17 = wx.RadioButton(panel, -1, label=windows_data['SF']['name17'], pos=(10, 490))
         self.rb18 = wx.RadioButton(panel, -1, label=windows_data['SF']['name18'], pos=(10, 520))
-
-        globals = Global()
-        globals.Intelligence = chara['Character']['tianlongren']['Value']['Intelligence']
-        globals.Resources = chara['Character']['tianlongren']['Value']['Resources']
 
         # 下一行代码创建了一个标签用于存放对于玩家所选择的身份的介绍。
         self.title_2 = wx.StaticText(panel, label=windows_data['jieshao_QuanShi'], pos=(100, 60))
@@ -120,6 +120,35 @@ class Frame1(wx.Frame):
 
         self.Bind(wx.EVT_RADIOBUTTON, self.OnClick1, self.xb1)
         self.Bind(wx.EVT_RADIOBUTTON, self.OnClick2, self.xb2)
+
+        na = [self.rb1.GetValue, self.rb2.GetValue, self.rb3.GetValue]
+        # 列表na，用于存放rb系列按钮的布朗值。
+
+        just = ['quanshi', 'tianlongren', 'haigui']
+        # 列表just，用于存放字符串作为字典索性。
+
+        globals = Global()
+        # 调用跨模块对象
+        globals.ceshi = 70
+        '''
+        # 测试数据，测试完删除。
+        self.i = False
+        # 创建主方法所属 i 布朗值。
+        for j in range(0, 2, 1):
+        # 循环，循环内j为0,1,2。
+            if self.i:
+            # self.i为True退出循环
+                break
+            if not self.i:
+                if na[j]:
+                    # 如果按钮被点击返回True—j号按钮的布朗值。
+                    self.data_1 = chara['Character'][just[j]]['Value']['Intelligence']
+                    self.data_2 = chara['Character'][just[j]]['Value']['Resources']
+                    self.i = True
+                else:
+                    self.i = False
+        globals.Intelligence = self.data_1
+        '''
 
     # InClick1-3系列函数的功能是与剧本按钮绑定，点击按钮触发函数修改‘BeiJie’标签内的游戏剧本说明。
     def InClick1(self, event):

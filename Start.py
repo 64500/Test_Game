@@ -17,8 +17,10 @@ class GameWindow(wx.Frame):
         self.run = 5
         self.Health_data = 0
         self.anxious = 144
+
         self.intelligence_data = globals.Intelligence
-        self.resources_data = globals.Resources
+        self.resources_data = 0
+        # 这里随便写的数字，需要引入Starting模块中的选择的对象的resources数值
 
         self.title = wx.StaticText(panel2, label='回合：'+str(self.time), pos=(60, 10))
         self.title2 = wx.StaticText(panel2, label='', pos=(60, 60))
